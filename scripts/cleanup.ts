@@ -15,7 +15,7 @@ const removeAllReadmeFromApp = async (currentDirectory: string) => {
       await removeAllReadmeFromApp(`${currentDirectory}/${file}`);
     }
     if (file.includes("README.md")) {
-      await fs.unlink(`${appDirectory}/${file}`);
+      await fs.unlink(`${currentDirectory}/${file}`);
     }
   }
 };

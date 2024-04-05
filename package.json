@@ -15,6 +15,7 @@
     "lint:fix": "npm run lint -- --fix",
     "start": "remix-serve ./build/server/index.js",
     "test": "vitest run",
+    "test:ui": "vitest --ui --api 9527",
     "test:cov": "vitest run --coverage",
     "typecheck": "tsc",
     "validate": "npm run typecheck && npm run lint && npm run test",

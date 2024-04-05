@@ -2,7 +2,7 @@
 
 This is a simple language switcher for your website. It uses a simple JavaScript to switch between languages.
 
-It comes unstyled so you can style it however you want.
+It comes with minimal styling so you can style it however you want.
 
 ## How to use
 

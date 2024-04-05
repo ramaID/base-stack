@@ -18,9 +18,10 @@ const LanguageSwitcher = () => {
   const to = constructTo(location.pathname, i18n.language);
 
   return (
-    <>
+    <div className="flex gap-2 p-2 fixed top-0 right-0 w-min z-10">
       {supportedLanguages.map((language) => (
         <Link
+          className="text-blue-500 hover:underline transition-all"
           key={language}
           to={`/${language}${to}`}
           onClick={() => i18n.changeLanguage(language)}
@@ -28,7 +29,7 @@ const LanguageSwitcher = () => {
           {language}
         </Link>
       ))}
-    </>
+    </div>
   );
 };
 

@@ -36,11 +36,48 @@ const removeTheCleanupFromPackageJsonAndScripts = async () => {
   await fs.unlink("scripts/cleanup.ts");
 };
 
-removeAllReadmeFromApp(appDirectory).then(async () => {
-  await fs.unlink("scripts/README.md");
-  await fs.unlink("remix/README.md");
-  console.log(
-    chalk.green("All README.md files are removed from app directory")
+const revertIndexRoute = async () => {
+  const file = `import type { MetaFunction } from "@remix-run/node";
+import { useTranslation } from "react-i18next";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "New Remix App" },
+    { name: "description", content: "Welcome to Remix!" },
+  ];
+};
+
+export default function Index() {
+  const { t } = useTranslation();
+  return (
+    <div>
+      <h1>{t("hi")}</h1>
+      <p>{t("welcome")}</p>
+    </div>
   );
-});
-removeTheCleanupFromPackageJsonAndScripts();
+}
+`;
+  await fs.writeFile("app/routes/_index.tsx", file, "utf-8");
+  console.log(chalk.green("Index route is reverted to empty state"));
+};
+
+const removeForgeAssets = async () => {
+  await fs.unlink("public/logo.png");
+  await fs.unlink("public/banner.png");
+  console.log(chalk.green("Forge assets are removed from public directory"));
+};
+
+const runCleanup = async () => {
+  await removeForgeAssets();
+  await revertIndexRoute();
+  await removeAllReadmeFromApp(appDirectory).then(async () => {
+    await fs.unlink("scripts/README.md");
+    await fs.unlink("remix/README.md");
+    console.log(
+      chalk.green("All README.md files are removed from app directory")
+    );
+  });
+  removeTheCleanupFromPackageJsonAndScripts();
+};
+
+runCleanup();

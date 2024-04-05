@@ -20,8 +20,25 @@ const removeAllReadmeFromApp = async (currentDirectory: string) => {
   }
 };
 
+const removeTheCleanupFromPackageJsonAndScripts = async () => {
+  const packageJson = JSON.parse(
+    await fs.readFile("package.json", { encoding: "utf-8" })
+  );
+
+  delete packageJson.scripts.cleanup;
+  await fs.writeFile(
+    "package.json",
+    JSON.stringify(packageJson, null, 2),
+    "utf-8"
+  );
+
+  console.log(chalk.green("Cleanup script is removed from package.json"));
+  await fs.unlink("scripts/cleanup.ts");
+};
+
 removeAllReadmeFromApp(appDirectory).then(() => {
   console.log(
     chalk.green("All README.md files are removed from app directory")
   );
 });
+removeTheCleanupFromPackageJsonAndScripts();

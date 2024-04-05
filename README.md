@@ -19,7 +19,7 @@ It includes a basic setup for a project with Remix.run and:
 
 1. Initialize the repository with our CLI:
 ```bash
-npx f42 init -t base-stack -o ./your-name-here
+npx f42 init -t base-stack -o ./your-project-name-here
 ```
 2. Install the dependencies:
 ```bash
@@ -31,6 +31,11 @@ npm install
 ```bash
 npm run cleanup
 ```
+
+This will remove everything in the project related to the base-stack like README.md etc. 
+This is the first thing you should run after initializing the project.
+After it is run it will remove itself from the package.json.
+
 5. Start the development server:
 ```bash
 npm run dev

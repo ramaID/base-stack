@@ -36,7 +36,9 @@ const removeTheCleanupFromPackageJsonAndScripts = async () => {
   await fs.unlink("scripts/cleanup.ts");
 };
 
-removeAllReadmeFromApp(appDirectory).then(() => {
+removeAllReadmeFromApp(appDirectory).then(async () => {
+  await fs.unlink("scripts/README.md");
+  await fs.unlink("remix/README.md");
   console.log(
     chalk.green("All README.md files are removed from app directory")
   );

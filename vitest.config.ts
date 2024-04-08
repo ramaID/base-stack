@@ -10,6 +10,8 @@ export default defineConfig({
     include: ["./app/**/*.test.{ts,tsx}"],
     coverage: {
       include: ["app/**/*"],
+      reporter: ["text", "json-summary", "json"],
+      reportOnFailure: true,
     },
   },
 });

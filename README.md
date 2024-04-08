@@ -1,3 +1,9 @@
+
+
+<p align="middle">
+<img  width="900px" height="500px" src="./public/base-stack.png" />
+</p>
+
 # Welcome to Forge 42 base-stack
 
 This is a base-stack for Forge 42 projects. This stack is a starting point for all Forge 42 stacks with more 

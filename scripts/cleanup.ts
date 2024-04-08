@@ -63,6 +63,7 @@ export default function Index() {
 
 const removeForgeAssets = async () => {
   await fs.unlink("public/logo.png");
+  await fs.unlink("public/base-stack.png");
   await fs.unlink("public/banner.png");
   console.log(chalk.green("Forge assets are removed from public directory"));
 };

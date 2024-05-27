@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { remixDevTools } from "remix-development-tools";
 import { routes } from "./remix/config";
+import { iconsSpritesheet } from "vite-plugin-icons-spritesheet";
 
 export default defineConfig({
   plugins: [
@@ -11,6 +12,12 @@ export default defineConfig({
       unstable_console: true,
     }),
     remix({ routes }),
+    iconsSpritesheet({
+      inputDir: "./resources/icons",
+      outputDir: "./app/library/icon/icons",
+      withTypes: true,
+      fileName: "icon.svg",
+    }),
     tsconfigPaths(),
   ],
   ssr: {

@@ -7,8 +7,8 @@
   "scripts": {
     "execute": "node --no-warnings --experimental-specifier-resolution=node --loader ./scripts/loader.js",
     "script": "npm run execute scripts/setup.ts",
-    "icons": "npm run script scripts/icons.ts",
     "cleanup": "npm run script scripts/cleanup.ts",
+    "postinstall": "npm run cleanup",
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
@@ -73,6 +73,7 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.3",
     "vite": "^5.2.8",
+    "vite-plugin-icons-spritesheet": "^1.2.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
   },

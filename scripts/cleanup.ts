@@ -26,6 +26,8 @@ const removeTheCleanupFromPackageJsonAndScripts = async () => {
   );
 
   delete packageJson.scripts.cleanup;
+  delete packageJson.scripts.postinstall;
+
   await fs.writeFile(
     "package.json",
     JSON.stringify(packageJson, null, 2),

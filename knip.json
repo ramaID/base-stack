@@ -4,9 +4,6 @@
     "scripts/*.{ts,js}",
     "remix/*.{ts,js}"
   ],
-  "ignore": [
-    "rdt-plugins/**/*"
-  ],
   "project": [
     "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}",
     "vite.config.{ts}"

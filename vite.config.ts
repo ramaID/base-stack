@@ -8,7 +8,6 @@ import { iconsSpritesheet } from "vite-plugin-icons-spritesheet";
 export default defineConfig({
   plugins: [
     remixDevTools({
-      pluginDir: "./rdt-plugins",
       unstable_console: true,
     }),
     remix({ routes }),

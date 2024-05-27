@@ -19,8 +19,6 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
-  ignorePatterns: ["rdt-plugins/**/*"],
-
   // Base config
   extends: ["eslint:recommended"],
 

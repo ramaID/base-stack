@@ -11,19 +11,16 @@ export default defineConfig({
       unstable_console: true,
     }),
     remix({ routes }),
+    tsconfigPaths(),
     iconsSpritesheet({
       inputDir: "./resources/icons",
       outputDir: "./app/library/icon/icons",
-      withTypes: true,
       fileName: "icon.svg",
+      withTypes: true,
     }),
-    tsconfigPaths(),
   ],
-  ssr: {
-    noExternal: ["remix-i18next"],
-  },
   server: {
     open: true,
-    port: 3000,
+    port: 4280,
   },
 });

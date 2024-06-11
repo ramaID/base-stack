@@ -34,7 +34,7 @@ jobs:
           useLockFile: false
 
       - name: 🔬 Lint
-        run: npm run lint:strict
+        run: npm run lint:ci
 
   typecheck:
     name: 🔎 Type check

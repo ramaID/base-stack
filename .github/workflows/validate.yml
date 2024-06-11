@@ -14,7 +14,7 @@ permissions:
   pull-requests: write
 jobs:
   lint:
-    name: ⬣ ESLint
+    name: ⬣ Biome lint
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs

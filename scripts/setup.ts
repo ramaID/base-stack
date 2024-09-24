@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process"
+import dotenvx from "@dotenvx/dotenvx"
 import chalk from "chalk"
-import dotenv from "dotenv"
 import prompt from "prompt"
 // add all the env you wish here
 const ENVIRONMENTS = ["stage", "prod", "test"]
@@ -18,7 +18,7 @@ const getEnvInfo = () => {
 const setupEnv = () => {
 	const { envName, path } = getEnvInfo()
 	console.log(chalk.green(`Loading environment: ${envName}`))
-	dotenv.config({ path })
+	dotenvx.config({ path })
 	console.log(`Environment loaded: ${chalk.green(envName)} from ${chalk.green(path)}`)
 }
 

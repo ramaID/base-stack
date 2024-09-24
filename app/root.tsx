@@ -4,14 +4,11 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "
 import { useTranslation } from "react-i18next"
 import { useChangeLanguage } from "remix-i18next/react"
 import { LanguageSwitcher } from "./library/language-switcher"
-import i18next from "./localization/i18n.server"
-import { returnLanguageIfSupported } from "./localization/resource"
+import { returnLanguageFromRequest } from "./localization/i18n.server"
 import tailwindcss from "./tailwind.css?url"
 
-export async function loader({ request, params }: LoaderFunctionArgs) {
-	const lang = returnLanguageIfSupported(params.lang)
-	const locale = lang ?? (await i18next.getLocale(request))
-
+export async function loader({ request }: LoaderFunctionArgs) {
+	const locale = await returnLanguageFromRequest(request)
 	return json({ locale })
 }
 

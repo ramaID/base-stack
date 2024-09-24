@@ -17,7 +17,6 @@ const getEnvInfo = () => {
 
 const setupEnv = () => {
 	const { envName, path } = getEnvInfo()
-	console.log(chalk.green(`Loading environment: ${envName}`))
 	dotenvx.config({ path })
 	console.log(`Environment loaded: ${chalk.green(envName)} from ${chalk.green(path)}`)
 }

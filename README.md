@@ -6,7 +6,7 @@
 
 # Welcome to Forge 42 base-stack
 
-This is a base-stack for Forge 42 projects. This stack is a starting point for all Forge 42 stacks with more 
+This is a base-stack for Forge 42 projects. This stack is a starting point for all Forge 42 stacks with more
 advanced features. This is an ESM Vite stack with Remix.run.
 
 It includes a basic setup for a project with Remix.run and:
@@ -15,11 +15,22 @@ It includes a basic setup for a project with Remix.run and:
 - Vite
 - Vitest (unit tests)
 - Scripting
-- ESLint
-- i18n support
-- Icon generator
-- Husky hooks
-- remix-development-tools + plugins
+- Biome (linter & formatter)
+- i18n support (client and server)
+- Icons spritesheet generator
+- lefthook hooks
+- CI checks for quality control
+- remix-development-tools
+
+## Internationalization
+
+This stack uses i18next for internationalization. It supports both client and server side translations.
+Features included out of the box:
+- Support for multiple languages
+- Typesafe resources
+- client side translations are fetched only when needed
+- language switcher
+- language detector (uses the request to detect the language, falls back to your fallback language)
 
 ## How to use
 
@@ -38,7 +49,7 @@ npm install
 npm run cleanup
 ```
 
-This will remove everything in the project related to the base-stack like README.md etc. 
+This will remove everything in the project related to the base-stack like README.md etc.
 This is the first thing you should run after initializing the project.
 After it is run it will remove itself from the package.json.
 
@@ -47,4 +58,3 @@ After it is run it will remove itself from the package.json.
 npm run dev
 ```
 6. Happy coding!
-

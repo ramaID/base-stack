@@ -35,9 +35,6 @@ importers:
       i18next-fetch-backend:
         specifier: ^6.0.0
         version: 6.0.0
-      i18next-fs-backend:
-        specifier: ^2.3.2
-        version: 2.3.2
       isbot:
         specifier: ^5.1.17
         version: 5.1.17
@@ -110,7 +107,7 @@ importers:
         specifier: ^15.7.4
         version: 15.7.4
       knip:
-        specifier: ^5.27.2
+        specifier: ^5.33.1
         version: 5.33.1(@types/node@22.7.5)(typescript@5.6.2)
       lefthook:
         specifier: ^1.7.18
@@ -2576,9 +2573,6 @@ packages:
   i18next-fetch-backend@6.0.0:
     resolution: {integrity: sha512-kVqnydqLVMZfVlOuP2nf71cREydlxEKLH43jUXAFdOku/GF+6b9fBg31anoos5XncdhdtiYgL9fheqMrtXRwng==}
     engines: {node: '>=18'}
-
-  i18next-fs-backend@2.3.2:
-    resolution: {integrity: sha512-LIwUlkqDZnUI8lnUxBnEj8K/FrHQTT/Sc+1rvDm9E8YvvY5YxzoEAASNx+W5M9DfD5s77lI5vSAFWeTp26B/3Q==}
 
   i18next@23.15.2:
     resolution: {integrity: sha512-zcPSWzCvw6uKnuYHIqs4W7hTuB9e3AFcSdZgvCWoPXIZsBjBd4djN2/2uOHIB+1DFFkQnMBXvhNg7J3WyCuywQ==}
@@ -6932,8 +6926,6 @@ snapshots:
       '@babel/runtime': 7.25.7
 
   i18next-fetch-backend@6.0.0: {}
-
-  i18next-fs-backend@2.3.2: {}
 
   i18next@23.15.2:
     dependencies:

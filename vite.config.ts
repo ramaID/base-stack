@@ -11,7 +11,16 @@ export default defineConfig({
 			exclude: [/^\/(resources)\/.+/],
 		}),
 		remixDevTools(),
-		remix(),
+		remix({
+			future: {
+				unstable_optimizeDeps: true,
+				unstable_singleFetch: true,
+				v3_fetcherPersist: true,
+				v3_relativeSplatPath: true,
+				v3_throwAbortReason: true
+			}
+		}
+		),
 		tsconfigPaths(),
 		iconsSpritesheet({
 			inputDir: "./resources/icons",

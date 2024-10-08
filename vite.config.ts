@@ -8,7 +8,6 @@ import tsconfigPaths from "vite-tsconfig-paths"
 export default defineConfig({
 	plugins: [
 		devServer({
-
 			exclude: [/^\/(resources)\/.+/],
 		}),
 		remixDevTools(),
@@ -22,7 +21,7 @@ export default defineConfig({
 		}),
 	],
 	build: {
-		target: "esnext"
+		target: "esnext",
 	},
 	server: {
 		open: true,

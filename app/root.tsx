@@ -6,7 +6,7 @@ import { useChangeLanguage } from "remix-i18next/react"
 import { LanguageSwitcher } from "./library/language-switcher"
 import tailwindcss from "./tailwind.css?url"
 
-export async function loader({  context: { lang, clientEnv } }: LoaderFunctionArgs) {
+export async function loader({ context: { lang, clientEnv } }: LoaderFunctionArgs) {
 	return json({ lang, clientEnv })
 }
 

@@ -1,7 +1,6 @@
 import { resolve } from "node:path"
 import { RemixI18Next } from "remix-i18next/server"
 import i18n from "~/localization/i18n" // your i18n configuration file
-import type { Language } from "~/localization/resource"
 
 const i18next = new RemixI18Next({
 	detection: {
@@ -19,8 +18,3 @@ const i18next = new RemixI18Next({
 })
 
 export default i18next
-
-export const returnLanguageFromRequest = async (request: Request) => {
-	const lang = await i18next.getLocale(request)
-	return lang as Language
-}

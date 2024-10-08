@@ -4,31 +4,25 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration, useLoaderData } from "
 import { useTranslation } from "react-i18next"
 import { useChangeLanguage } from "remix-i18next/react"
 import { LanguageSwitcher } from "./library/language-switcher"
-import { returnLanguageFromRequest } from "./localization/i18n.server"
 import tailwindcss from "./tailwind.css?url"
 
-export async function loader({ request }: LoaderFunctionArgs) {
-	const locale = await returnLanguageFromRequest(request)
-	return json({ locale })
+export async function loader({  context: { lang, clientEnv } }: LoaderFunctionArgs) {
+	return json({ lang, clientEnv })
 }
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: tailwindcss }]
 
 export const handle = {
-	// In the handle export, we can add a i18n key with namespaces our route
-	// will need to load. This key can be a single string or an array of strings.
-	// TIP: In most cases, you should set this to your defaultNS from your i18n config
-	// or if you did not set one, set it to the i18next default namespace "translation"
 	i18n: "common",
 }
 
 export default function App() {
-	const { locale } = useLoaderData<typeof loader>()
+	const { lang, clientEnv } = useLoaderData<typeof loader>()
 	const { i18n } = useTranslation()
-	useChangeLanguage(locale)
+	useChangeLanguage(lang)
 
 	return (
-		<html className="overflow-y-auto overflow-x-hidden" lang={locale} dir={i18n.dir()}>
+		<html className="overflow-y-auto overflow-x-hidden" lang={lang} dir={i18n.dir()}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,6 +34,8 @@ export default function App() {
 				<Outlet />
 				<ScrollRestoration />
 				<Scripts />
+				{/* biome-ignore lint/security/noDangerouslySetInnerHtml: We set the window.env variable to the client env */}
+				<script dangerouslySetInnerHTML={{ __html: `window.env = ${JSON.stringify(clientEnv)}` }} />
 			</body>
 		</html>
 	)

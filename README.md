@@ -21,6 +21,9 @@ It includes a basic setup for a project with Remix.run and:
 - lefthook hooks
 - CI checks for quality control
 - remix-development-tools
+- Hono server
+- .env var handling for server and client
+- SEO robots.txt, sitemap-index and sitemap built in.
 
 ## Internationalization
 
@@ -32,21 +35,44 @@ Features included out of the box:
 - language switcher
 - language detector (uses the request to detect the language, falls back to your fallback language)
 
-## How to use
+## Hono server
 
-1. Initialize the repository with our CLI:
-```bash
-npx f42 init -t base-stack -o ./your-project-name-here
+This stack uses Hono for the server. More information about Hono can be found [here](https://honojs.dev/).
+Another important thing to note is that we use a dependency called `react-router-hono-server` which is a wrapper for Hono that allows us to use Hono in our React Router application.
+
+The server comes preconfigured with:
+- i18next middleware
+- caching middleware for assets
+- easily extendable global application context
+- .env injection into context
+
+In order to add your own middleware, extend the context, or anything along those lines, all you have to do is edit the server
+inside the `entry.server.tsx` file.
+
+## .env handling
+
+This stack parses your `.env` file and injects it into the server context. For the client side, in the `root.tsx` file, we use the `useLoaderData` hook to get the `clientEnv` from the server and set it as a global variable on the `window` called `env`.
+If you need to access the env variables in both environments, you can create a polyEnv helper like this:
+```ts
+// app/utils/env.ts
+// This will return the process.env on the server and window.env on the client
+export const polyEnv = typeof process !== "undefined" ? process.env : window.env;
 ```
+The server will fail at runtime if you don't set your `.env` file properly.
+
+## Getting started
+
+1. Fork the repository
+
 2. Install the dependencies:
 ```bash
-npm install
+pnpm install
 ```
 3. Read through the README.md files in the project to understand our decisions.
 
 4. Run the cleanup script:
 ```bash
-npm run cleanup
+pnpm cleanup
 ```
 
 This will remove everything in the project related to the base-stack like README.md etc.

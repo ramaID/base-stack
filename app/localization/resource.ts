@@ -3,7 +3,7 @@ import english from "../../resources/locales/en/common.json"
 
 const languages = ["en", "bs"] as const
 export const supportedLanguages = [...languages]
-export type Language = (typeof languages)[number]
+type Language = (typeof languages)[number]
 
 type Resource = {
 	common: typeof english

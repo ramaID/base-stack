@@ -7,6 +7,7 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
+		"execute": "tsx",
 		"clean": "git clean -fdX --exclude=\"!.env\"",
 		"script": "tsx scripts/setup.ts",
 		"cleanup": "pnpm run script scripts/cleanup.ts",

@@ -48,8 +48,8 @@ importers:
         specifier: 7.0.1
         version: 7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-router-hono-server:
-        specifier: https://pkg.pr.new/rphlmr/react-router-hono-server@10.tgz
-        version: https://pkg.pr.new/rphlmr/react-router-hono-server@10.tgz(@remix-run/node@2.12.1(typescript@5.6.3))(hono@4.6.11)(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(remix-hono@0.0.16(i18next@23.15.2)(remix-i18next@7.0.0(i18next@23.15.2)(react-i18next@15.1.1(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(typescript@5.6.3)(zod@3.23.8))(vite@5.4.11(@types/node@22.9.1))
+        specifier: https://pkg.pr.new/rphlmr/react-router-hono-server@18.tgz
+        version: https://pkg.pr.new/rphlmr/react-router-hono-server@18.tgz(@remix-run/node@2.12.1(typescript@5.6.3))(hono@4.6.11)(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(remix-hono@0.0.16(i18next@23.15.2)(remix-i18next@7.0.0(i18next@23.15.2)(react-i18next@15.1.1(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(typescript@5.6.3)(zod@3.23.8))(vite@5.4.11(@types/node@22.9.1))
       remix-hono:
         specifier: 0.0.16
         version: 0.0.16(i18next@23.15.2)(remix-i18next@7.0.0(i18next@23.15.2)(react-i18next@15.1.1(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(typescript@5.6.3)(zod@3.23.8)
@@ -753,8 +753,8 @@ packages:
   '@forge42/seo-tools@1.3.0':
     resolution: {integrity: sha512-yxpkeyYyZhFzTpuq9rtcx6FRVZD0NTcVDS2ptrVG7nobnHQnANlLJXkY343GOocHGTygdK35Hyu/iU1nxsEGuA==}
 
-  '@hono/node-server@1.13.1':
-    resolution: {integrity: sha512-TSxE6cT5RHnawbjnveexVN7H2Dpn1YaLxQrCOLCUwD+hFbqbFsnJBgdWcYtASqtWVjA+Qgi8uqFug39GsHjo5A==}
+  '@hono/node-server@1.13.7':
+    resolution: {integrity: sha512-kTfUMsoloVKtRA2fLiGSd9qBddmru9KadNyhJCwgKBxTiNkaAJEwkVN9KV/rS4HtmmNRtUh6P+YpmjRMl0d9vQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -2813,9 +2813,9 @@ packages:
       react-router: '>=7.0.0'
       vite: '>=5.0.0'
 
-  react-router-hono-server@https://pkg.pr.new/rphlmr/react-router-hono-server@10.tgz:
-    resolution: {tarball: https://pkg.pr.new/rphlmr/react-router-hono-server@10.tgz}
-    version: 0.2.0
+  react-router-hono-server@https://pkg.pr.new/rphlmr/react-router-hono-server@18.tgz:
+    resolution: {tarball: https://pkg.pr.new/rphlmr/react-router-hono-server@18.tgz}
+    version: 2.0.0
     peerDependencies:
       '@remix-run/node': ^2.0.0
       hono: ^4.5.3
@@ -3150,9 +3150,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  tslib@2.7.0:
-    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -3959,13 +3956,13 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@hono/node-server@1.13.1(hono@4.6.11)':
+  '@hono/node-server@1.13.7(hono@4.6.11)':
     dependencies:
       hono: 4.6.11
 
   '@hono/vite-dev-server@0.13.1(hono@4.6.11)':
     dependencies:
-      '@hono/node-server': 1.13.1(hono@4.6.11)
+      '@hono/node-server': 1.13.7(hono@4.6.11)
       hono: 4.6.11
       miniflare: 3.20240925.1
       minimatch: 9.0.5
@@ -4852,7 +4849,7 @@ snapshots:
   capnp-ts@0.7.0:
     dependencies:
       debug: 4.3.7
-      tslib: 2.7.0
+      tslib: 2.8.1
     transitivePeerDependencies:
       - supports-color
 
@@ -5997,9 +5994,9 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  react-router-hono-server@https://pkg.pr.new/rphlmr/react-router-hono-server@10.tgz(@remix-run/node@2.12.1(typescript@5.6.3))(hono@4.6.11)(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(remix-hono@0.0.16(i18next@23.15.2)(remix-i18next@7.0.0(i18next@23.15.2)(react-i18next@15.1.1(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(typescript@5.6.3)(zod@3.23.8))(vite@5.4.11(@types/node@22.9.1)):
+  react-router-hono-server@https://pkg.pr.new/rphlmr/react-router-hono-server@18.tgz(@remix-run/node@2.12.1(typescript@5.6.3))(hono@4.6.11)(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(remix-hono@0.0.16(i18next@23.15.2)(remix-i18next@7.0.0(i18next@23.15.2)(react-i18next@15.1.1(i18next@23.15.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-router@7.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1))(typescript@5.6.3)(zod@3.23.8))(vite@5.4.11(@types/node@22.9.1)):
     dependencies:
-      '@hono/node-server': 1.13.1(hono@4.6.11)
+      '@hono/node-server': 1.13.7(hono@4.6.11)
       '@hono/vite-dev-server': 0.13.1(hono@4.6.11)
       '@remix-run/node': 2.12.1(typescript@5.6.3)
       hono: 4.6.11
@@ -6341,8 +6338,6 @@ snapshots:
   tsconfck@3.1.4(typescript@5.6.3):
     optionalDependencies:
       typescript: 5.6.3
-
-  tslib@2.7.0: {}
 
   tslib@2.8.1: {}
 

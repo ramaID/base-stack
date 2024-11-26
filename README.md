@@ -72,13 +72,7 @@ pnpm install
 
 3. Review project documentation
 
-4. Run the cleanup script:
-```bash
-pnpm cleanup
-```
-This removes base-stack specific files and self-removes from package.json
-
-5. Start development:
+4. Start development:
 ```bash
 pnpm run dev
 ```

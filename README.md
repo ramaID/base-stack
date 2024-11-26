@@ -1,8 +1,4 @@
-<p align="middle">
-<img  width="900px" height="500px" src="./public/base-stack.png" />
-</p>
-
-# Welcome to Forge 42 base-stack
+# Welcome
 
 A modern full-stack web development template using ESM Vite and Remix.run / React Router v7. This stack provides a robust foundation for building scalable web applications with built-in support for TypeScript, internationalization, testing, and more.
 

@@ -7,7 +7,7 @@
 export const createDomain = (request: Request) => {
 	const headers = request.headers
 	const maybeProto = headers.get("x-forwarded-proto")
-	const maybeHost = headers.get("host")
+	const maybeHost = headers.get("x-forwarded-host")
 	const url = new URL(request.url)
 	// If the request is behind a proxy, we need to use the x-forwarded-proto and host headers
 	// to get the correct domain

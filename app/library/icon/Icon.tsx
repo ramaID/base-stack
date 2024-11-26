@@ -5,15 +5,15 @@ import type { IconName } from "./icons/types"
 
 export enum IconSize {
 	xs = "12",
-	sm = "16",
-	md = "24",
-	lg = "32",
-	xl = "40",
+	// sm = "16",
+	// md = "24",
+	// lg = "32",
+	// xl = "40",
 }
 
-export type IconSizes = keyof typeof IconSize
+type IconSizes = keyof typeof IconSize
 
-export interface IconProps extends SVGProps<SVGSVGElement> {
+interface IconProps extends SVGProps<SVGSVGElement> {
 	name: IconName
 	testId?: string
 	className?: string
@@ -24,7 +24,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
  * Icon component wrapper for SVG icons.
  * @returns SVG icon as a react component
  */
-export const Icon = ({ name, testId, className, size = "md", ...props }: IconProps) => {
+export const Icon = ({ name, testId, className, size = "xs", ...props }: IconProps) => {
 	const iconSize = IconSize[size]
 	const iconClasses = cn("inline-block flex-shrink-0", className)
 	return (
@@ -43,4 +43,3 @@ export const Icon = ({ name, testId, className, size = "md", ...props }: IconPro
 		</svg>
 	)
 }
-export type { IconName }

@@ -1,86 +1,102 @@
-
-
 <p align="middle">
 <img  width="900px" height="500px" src="./public/base-stack.png" />
 </p>
 
 # Welcome to Forge 42 base-stack
 
-This is a base-stack for Forge 42 projects. This stack is a starting point for all Forge 42 stacks with more
-advanced features. This is an ESM Vite stack with Remix.run / React Router v7.
+A modern full-stack web development template using ESM Vite and Remix.run / React Router v7. This stack provides a robust foundation for building scalable web applications with built-in support for TypeScript, internationalization, testing, and more.
 
-It includes a basic setup for a project with Remix.run and:
-- TypeScript
-- TailwindCSS
-- Vite
-- Vitest (unit tests)
-- Scripting
-- Biome (linter & formatter)
-- i18n support (client and server)
-- Icons spritesheet generator
-- lefthook hooks
-- CI checks for quality control
-- react-router-devtools
-- Hono server
-- .env var handling for server and client
-- SEO robots.txt, sitemap-index and sitemap built in.
+## Core Features
+
+- **Modern Stack:**
+  - TypeScript for type safety
+  - TailwindCSS for styling
+  - Vite for fast development and building
+  - Remix.run with React Router v7
+  - Hono server
+
+- **Development Tools:**
+  - Vitest for unit testing
+  - Biome for linting and formatting
+  - Lefthook for git hooks
+  - CI checks for quality control
+  - React Router DevTools
+
+- **Built-in Functionality:**
+  - i18n support (client and server)
+  - Icons spritesheet generator
+  - Environment variable handling
+  - SEO essentials (robots.txt, sitemap)
 
 ## Internationalization
 
-This stack uses i18next for internationalization. It supports both client and server side translations.
-Features included out of the box:
-- Support for multiple languages
-- Typesafe resources
-- client side translations are fetched only when needed
-- language switcher
-- language detector (uses the request to detect the language, falls back to your fallback language)
+The stack includes a comprehensive i18n setup using i18next with:
 
-## Hono server
+- Multi-language support
+- Type-safe resources
+- Lazy-loaded client-side translations
+- Built-in language switcher
+- Intelligent language detection with fallback
 
-This stack uses Hono for the server. More information about Hono can be found [here](https://honojs.dev/).
-Another important thing to note is that we use a dependency called `react-router-hono-server` which is a wrapper for Hono that allows us to use Hono in our React Router application.
+## Server Setup
 
-The server comes preconfigured with:
+Built on Hono with `react-router-hono-server` integration, the server comes pre-configured with:
+
 - i18next middleware
-- caching middleware for assets
-- easily extendable global application context
-- .env injection into context
+- Asset caching middleware
+- Extensible global application context
+- Environment variable injection
 
-In order to add your own middleware, extend the context, or anything along those lines, all you have to do is edit the server
-inside the `entry.server.tsx` file.
+Customize the server by modifying `entry.server.tsx`.
 
-## .env handling
+## Environment Variables
 
-This stack parses your `.env` file and injects it into the server context. For the client side, in the `root.tsx` file, we use the `useLoaderData` hook to get the `clientEnv` from the server and set it as a global variable on the `window` called `env`.
-If you need to access the env variables in both environments, you can create a polyEnv helper like this:
+The stack includes sophisticated environment variable handling:
+
+- Server-side: Variables are parsed and injected into server context
+- Client-side: Variables are exposed via `window.env` through the root loader
+- Type-safe access in both environments
+
+Example polymorph env helper:
 ```ts
 // app/utils/env.ts
-// This will return the process.env on the server and window.env on the client
 export const polyEnv = typeof process !== "undefined" ? process.env : window.env;
 ```
-The server will fail at runtime if you don't set your `.env` file properly.
 
-## Getting started
+Note: Missing required environment variables will cause server startup failure.
+
+## Getting Started
 
 1. Fork the repository
 
-2. Install the dependencies:
+2. Install dependencies:
 ```bash
 pnpm install
 ```
-3. Read through the README.md files in the project to understand our decisions.
+
+3. Review project documentation
 
 4. Run the cleanup script:
 ```bash
 pnpm cleanup
 ```
+This removes base-stack specific files and self-removes from package.json
 
-This will remove everything in the project related to the base-stack like README.md etc.
-This is the first thing you should run after initializing the project.
-After it is run it will remove itself from the package.json.
-
-5. Start the development server:
+5. Start development:
 ```bash
 pnpm run dev
 ```
-6. Happy coding!
+
+## Project Structure
+
+The project follows a clean architecture with:
+
+- `/app` - Core application code
+  - `/routes` - Route definitions and handlers
+  - `/library` - Reusable components
+  - `/localization` - i18n setup and resources
+  - `/server` - Server configuration
+  - `/utils` - Utility functions
+- `/resources` - Static assets and translations
+- `/scripts` - Build and development scripts
+- `/tests` - Test configuration and helpers

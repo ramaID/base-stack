@@ -1,8 +1,8 @@
 import { generateRemixSitemap } from "@forge42/seo-tools/remix/sitemap"
-import type { LoaderFunctionArgs } from "react-router"
 import { createDomain } from "~/utils/http"
+import type { Route } from "./+types/sitemap.$lang[.]xml"
 
-export const loader = async ({ request, params }: LoaderFunctionArgs) => {
+export const loader = async ({ request, params }: Route.LoaderArgs) => {
 	const domain = createDomain(request)
 
 	// @ts-expect-error - This import exists but is not picked up by the typescript compiler because it's a remix internal
